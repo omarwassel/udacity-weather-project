@@ -29,15 +29,15 @@ const server=app.listen(port,()=>{
     console.log(`at localhost ${port}`);
 });
 
-//post rout to store data in projectData end-point
+//post route to store data in projectData end-point
 app.post("/storeData",(req,res)=>{
         let data=req.body;
         projectData={"date":data.date , "temp":data.temp ,"content":data.content};
+        res.send("data stored successfully")
         console.log(`projectData: ${projectData}`);
     }
 );
-
-
+//get route to get data from projectData end-point
 app.get("/getData",(req,res)=>{
     let str=JSON.stringify(projectData);
     console.log(`str: ${str}`);
